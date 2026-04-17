@@ -1,0 +1,48 @@
+# Everest Agent Chain — Tenant → Crew mapping (SSOT)
+# Ratified Apr 16 2026, replaces kortix-ai/suna master hub
+tenants:
+  biddeed:
+    display_name: "BidDeed.AI"
+    domain: "biddeed.ai"
+    business_kind: "platform"
+    crew: "auction_intelligence"
+    pairing_rule: "always paired with zonewise"
+    brand_tokens:
+      navy: "#1E3A5F"
+      orange: "#F59E0B"
+      bg: "#020617"
+      font: "Inter"
+  zonewise:
+    display_name: "ZoneWise.AI"
+    domain: "zonewise.ai"
+    business_kind: "platform"
+    crew: "zoning_intelligence"
+    pairing_rule: "always paired with biddeed"
+  property360:
+    display_name: "Property360"
+    business_kind: "brokerage"
+    crew: "listings_operations"
+    license_holder: "Mariam Shapira"
+  kenstrekt:
+    display_name: "Kenstrekt"
+    business_kind: "construction"
+    crew: "gc_operations"
+    license_holder: "Mariam Shapira"
+  protection-partners:
+    display_name: "Protection Partners"
+    business_kind: "insurance"
+    crew: "insurance_operations"
+    license_holder: "Mariam Shapira"
+  everest-capital:
+    display_name: "Everest Capital USA"
+    business_kind: "holding"
+    crew: "portfolio_operations"
+    stage: "parent"
+  everest-portfolio:
+    display_name: "Everest Portfolio"
+    business_kind: "portfolio"
+    crew: "investment_operations"
+  brevard-doors:
+    display_name: "Brevard Doors"
+    business_kind: "retail"
+    crew: "retail_operations"
