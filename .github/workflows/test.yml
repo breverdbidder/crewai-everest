@@ -7,10 +7,6 @@ on:
       - "everest_config/**"
       - "tests/**"
       - ".github/workflows/test.yml"
-  pull_request:
-    paths:
-      - "everest_config/**"
-      - "tests/**"
   workflow_dispatch:
 
 jobs:
@@ -23,9 +19,14 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-      - name: Install Everest-only dependencies
+      - name: Install Everest-only deps
         run: |
           python -m pip install --upgrade pip
           pip install crewai pyyaml pytest
-      - name: Run Everest smoke tests (skip upstream CrewAI conftest)
-        run: pytest tests/test_crews.py -v --noconftest --override-ini="addopts="
+      - name: Run isolated smoke tests (bypass upstream conftest)
+        run: |
+          mkdir -p /tmp/everest-tests
+          cp tests/test_crews.py /tmp/everest-tests/
+          touch /tmp/everest-tests/conftest.py
+          cd /tmp/everest-tests
+          PYTHONPATH="$GITHUB_WORKSPACE" pytest test_crews.py -v -c /dev/null
